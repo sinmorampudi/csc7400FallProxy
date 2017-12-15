@@ -19,22 +19,15 @@ public class FileStringifierProxy extends Thread  {
 	
 	/**
 	 * @param filename : name of the file
+	 * @param outWriter : the output print writer
 	 */
-	public FileStringifierProxy(String filename) {
+	public FileStringifierProxy(String filename,PrintWriter outWriter) {
         this.fileName = filename;
-        
+        out = outWriter;
+		printFileName(); 
 		 
 	}  
 	
-	 
-	/**
-	 * @param outWriter : the output print writer
-	 */
-	public void display(PrintWriter outWriter)
-	{
-		out = outWriter;
-		printFileName();   
-	}
 	
  
 	/**
