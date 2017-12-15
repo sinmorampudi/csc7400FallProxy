@@ -1,0 +1,63 @@
+/**
+ * Class: Object-Oriented Design and Analysis
+ * Professor: Orlando Montalvo
+ * Assignment: HW 10
+ * Students : Sindhuja Morampudi,Divya Kasu
+ * Date: 2017-12-15
+ */
+package edu.fitchburgstate.csc7400.f2017fall.proxy;
+import java.io.PrintWriter;
+/**
+ * Proxy method for SlowFileStringifier method
+ */
+
+public class FileStringifierProxy extends Thread  {
+
+	private String fileName;
+	private PrintWriter out;
+	private SlowFileStringifier slowFileStringifier;
+	
+	/**
+	 * @param filename : name of the file
+	 */
+	public FileStringifierProxy(String filename) {
+        this.fileName = filename;
+        
+		 
+	}  
+	
+	 
+	/**
+	 * @param outWriter : the output print writer
+	 */
+	public void display(PrintWriter outWriter)
+	{
+		out = outWriter;
+		printFileName();   
+	}
+	
+ 
+	/**
+	 * Prints the name of the files
+	 */
+	public void printFileName()
+	{   
+		
+		System.out.println("Reading "+ this.fileName);	
+	}
+	
+    
+    
+	/**
+	 * Thread method which prints the contents of the files.
+	 */
+    public void run()
+    {
+    	 slowFileStringifier = new SlowFileStringifier(fileName);
+         slowFileStringifier.display(out);
+    }
+    
+    
+}
+
+
