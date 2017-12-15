@@ -40,8 +40,7 @@ public class ShowFileContents {
         for (File file: dir.listFiles()) {
             if (file.isDirectory()) continue;
             //FileStringifier fd = new SlowFileStringifier(file.getPath());
-            FileStringifierProxy fd = new FileStringifierProxy(file.getPath());
-            fd.display(outWriter);
+            FileStringifierProxy fd = new FileStringifierProxy(file.getPath(),outWriter);
             fd.start();
             
             
